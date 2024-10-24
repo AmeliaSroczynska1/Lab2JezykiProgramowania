@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -7,12 +8,41 @@ public class Main {
         // HashSet i TreeSet. Następnie wyświetl różnice między HashSet a TreeSet w kontekście kolejności
         // elementów.
 
-        System.out.println("Zrobiłam to zadanie!");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj ciąg licz oddzielonych spacjami: ");
+
+        String ciag = scanner.nextLine();               //pobieram z klawiatury
+
+        Set<Integer> hashSet = new HashSet<>();          //tworze
+        Set<Integer> treeSet = new TreeSet<>();
+
+        String[] liczbyString = ciag.split(" ");  //Rozdzielam ciag na liczby ale jako stringi
+
+        for(String liczba : liczbyString){
+            int liczby = Integer.parseInt(liczba);       //Zamieniam stringi na liczby
+            hashSet.add(liczby);                         //dodaje do hashSet
+            treeSet.add(liczby);                         //dodaje do treeSet
+        }
+
+        scanner.close();
+
+        System.out.println(hashSet);                     //wyświetlam oba zbiory
+        System.out.println(treeSet);
+
+        System.out.println("Jak widać liczby w HashSet są układane w losowej kolejności," + //wyświetlam wnioski
+                "w TreeSet są sortowane w kolejności rosnącej.");
     }
 
     public static void zad2(){
         //Stwórz program, który dodaje, usuwa i modyfikuje elementy w dwóch listach typu ArrayList i
         // LinkedList. Następnie zmierz czas wykonywania tych operacji i porównaj wyniki.
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj ile elementów chcesz dodać do list (może być dużo): ");
+
+        int iloscElementow = scanner.nextInt();
 
 
 
@@ -139,58 +169,61 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("Proszę wybrać numer zadania, którego rozwiązanie chce Pan zobaczyć. Rozwiązałam 11 zadań: ");
+//        System.out.println("Proszę wybrać numer zadania, którego rozwiązaniesz zobaczyć. Rozwiązałam 11 zadań: ");
+//
+//        Scanner scanner = new Scanner(System.in);
+//
+//        String wybor = scanner.nextLine();
+//
+//        switch(wybor){
+//            case "1":
+//                zad1();
+//                break;
+//
+//            case "2":
+//                zad2();
+//                break;
+//
+//            case "3":
+//                zad3();
+//                break;
+//
+//            case "4":
+//                zad4();
+//                break;
+//
+//            case "5":
+//                zad5();
+//                break;
+//
+//            case "6":
+//                zad6();
+//                break;
+//
+//            case "7":
+//                zad7();
+//                break;
+//
+//            case "8":
+//                zad8();
+//                break;
+//
+//            case "9":
+//                zad9();
+//                break;
+//
+//            case "10":
+//                zad10();
+//                break;
+//
+//            case "11":
+//                zad11();
+//                break;
+//
+//        }
 
-        Scanner scanner = new Scanner(System.in);
+        zad2();
 
-        String wybor = scanner.nextLine();
-
-        switch(wybor){
-            case "1":
-                zad1();
-                break;
-
-            case "2":
-                zad2();
-                break;
-
-            case "3":
-                zad3();
-                break;
-
-            case "4":
-                zad4();
-                break;
-
-            case "5":
-                zad5();
-                break;
-
-            case "6":
-                zad6();
-                break;
-
-            case "7":
-                zad7();
-                break;
-
-            case "8":
-                zad8();
-                break;
-
-            case "9":
-                zad9();
-                break;
-
-            case "10":
-                zad10();
-                break;
-
-            case "11":
-                zad11();
-                break;
-
-        }
-
+        //scanner.close();
     }
 }
