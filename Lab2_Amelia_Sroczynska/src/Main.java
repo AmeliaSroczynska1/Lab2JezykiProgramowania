@@ -44,6 +44,17 @@ public class Main {
 
         int iloscElementow = scanner.nextInt();
 
+        List<Integer> arrayList = new ArrayList<>();        //tworze listy
+        List<Integer> linkedList = new LinkedList<>();
+
+        long czasStartowy = System.nanoTime();              //pobieram czas kiedy zaczynam dodawac
+
+        for(int i = 0; 1<iloscElementow; i++){              //dodaję wszystkie elementy do arrayList
+            arrayList.add(i);
+        }
+
+        long czasKoncowy = System.nanoTime();
+
 
 
     }
