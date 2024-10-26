@@ -10,7 +10,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Podaj ciąg licz oddzielonych spacjami: ");
+        System.out.println("Podaj ciąg liczb oddzielonych spacjami: ");
 
         String ciag = scanner.nextLine();               //pobieram z klawiatury
 
@@ -30,8 +30,8 @@ public class Main {
         System.out.println(hashSet);                     //wyświetlam oba zbiory
         System.out.println(treeSet);
 
-        System.out.println("Jak widać liczby w HashSet są układane w losowej kolejności," + //wyświetlam wnioski
-                "w TreeSet są sortowane w kolejności rosnącej.");
+        System.out.println("Jak widać, liczby w HashSet są układane w losowej kolejności," + //wyświetlam wnioski
+                " w TreeSet są sortowane w kolejności rosnącej. Oba zbiory ignorują duplikaty.");
     }
 
     public static void zad2(){
@@ -233,7 +233,7 @@ public class Main {
 //
 //        }
 
-        zad2();
+        zad1();
 
         //scanner.close();
     }
