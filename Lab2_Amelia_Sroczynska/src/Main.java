@@ -40,22 +40,98 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Podaj ile elementów chcesz dodać do list (może być dużo): ");
+        System.out.println("Podaj ilu elementową listę chcesz (może być dużo): ");
 
         int iloscElementow = scanner.nextInt();
 
         List<Integer> arrayList = new ArrayList<>();        //tworze listy
         List<Integer> linkedList = new LinkedList<>();
 
+
+        //Mierzenie czasu dodawania do ArrayList
         long czasStartowy = System.nanoTime();              //pobieram czas kiedy zaczynam dodawac
 
-        for(int i = 0; 1<iloscElementow; i++){              //dodaję wszystkie elementy do arrayList
+        for(int i = 0; i < iloscElementow; i++){            //dodaję wszystkie elementy do arrayList
             arrayList.add(i);
         }
 
-        long czasKoncowy = System.nanoTime();
+        long czasKoncowy = System.nanoTime();               //pobieram czas kiedy kończy dodawać
+        long czasDodawaniaArray = czasKoncowy-czasStartowy; //obliczam ostateczny czas dodawania
+
+        System.out.println("Czas dodawania " + iloscElementow + " elementów do ArrayList to " + czasDodawaniaArray + " nanosekund");      //wyświetlam wynik
 
 
+        //Mierzenie czasu dodawania do LinkedList
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+
+        for (int i = 0; i < iloscElementow; i++){           //dodaję wszystkie elementy do linkedList
+            linkedList.add(i);
+        }
+
+        czasKoncowy = System.nanoTime();                     //pobieram czas kiedy kończy dodawać
+        long czasDodawaniaLinked = czasKoncowy-czasStartowy; //obliczam ostateczny czas dodawania
+
+        System.out.println("Czas dodawania " + iloscElementow + " elementów do LinkedList to " + czasDodawaniaLinked + " nanosekund");      //wyświetlam wynik
+
+
+        //Mierzenie czasu modyfikacji w ArrayList
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+
+        for (int i = 0; i < iloscElementow; i++){           //modyfikuję kazdy element (podnosze do kwadratu)
+            arrayList.set(i, (int) Math.pow(arrayList.get(i), 2));
+        }
+
+        czasKoncowy = System.nanoTime();                      //pobieram czas kiedy kończy dodawać
+        long czasModyfikacjiArray = czasKoncowy-czasStartowy; //obliczam ostateczny czas modyfikowania
+
+        System.out.println("Czas modyfikacji " + iloscElementow + " elementów w ArrayList to " + czasModyfikacjiArray + " nanosekund");      //wyświetlam wynik
+
+
+        //Mierzenie czasu modyfikacji w LinkedList
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+
+        for (int i = 0; i < iloscElementow; i++){           //modyfikuję kazdy element
+            linkedList.set(i, (int) Math.pow(linkedList.get(i), 2));
+        }
+
+        czasKoncowy = System.nanoTime();                       //pobieram czas kiedy kończy dodawać
+        long czasModyfikacjiLinked = czasKoncowy-czasStartowy; //obliczam ostateczny czas modyfikowania
+
+        System.out.println("Czas modyfikacji " + iloscElementow + " elementów w LinkedList to " + czasModyfikacjiLinked + " nanosekund");      //wyświetlam wynik
+
+
+        //Mierzenie czasu usuwania w ArrayList
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+
+        for (int i = iloscElementow-1; i >= 0; i--){        //usuwam wszystkie elementy
+            arrayList.remove(i);
+        }
+
+        czasKoncowy = System.nanoTime();                    //pobieram czas kiedy kończy dodawać
+        long czasUsuwaniaArray = czasKoncowy-czasStartowy;  //obliczam czas usuwania
+
+        System.out.println("Czas usuwania " + iloscElementow + " elementów z ArrayList to " + czasUsuwaniaArray + " nanosekund");      //wyświetlam wynik
+
+
+        //Mierzenie czasu usuwania w LinkedList
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+
+        for (int i = iloscElementow-1; i >= 0; i--){        //usuwam wszystkie elementy
+            linkedList.remove(i);
+        }
+
+        czasKoncowy = System.nanoTime();                    //pobieram czas kiedy kończy dodawać
+        long czasUsuwaniaLinked = czasKoncowy-czasStartowy; //obliczam czas usuwania
+
+        System.out.println("Czas usuwania " + iloscElementow + " elementów z LinkedList to " + czasUsuwaniaLinked + " nanosekund");      //wyświetlam wynik
+
+        scanner.close();
+
+        System.out.println("Na podstawie wyników programu porównującego czas wykonywania operacji dodawania, modyfikacji i usuwania " +
+                "elementów w dwóch typach list (ArrayList i LinkedList) można zauważyć, że ArrayList zwykle wykazuje lepszą wydajność " +
+                "przy dodawaniu i modyfikacji, podczas gdy LinkedList może być korzystniejszy przy usuwaniu elementów, szczególnie gdy " +
+                "usuwamy je z początku lub środka listy. Różnice w czasach wykonywania operacji mogą być kluczowe w kontekście wyboru " +
+                "odpowiedniej struktury danych w zależności od wymagań aplikacji.");
 
     }
 
@@ -233,7 +309,7 @@ public class Main {
 //
 //        }
 
-        zad1();
+        zad2();
 
         //scanner.close();
     }
