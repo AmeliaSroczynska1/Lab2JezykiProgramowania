@@ -140,7 +140,44 @@ public class Main {
         // HashMap i TreeMap. Po dodaniu kilku elementów, zwróć uwagę na różnice w kolejności kluczy w
         // obu mapach.
 
+        Scanner scanner = new Scanner(System.in);
 
+        Map<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> treeMap = new TreeMap<>();
+
+        hashMap.put(2, "Mleko");
+        hashMap.put(1, "Woda");
+        hashMap.put(4, "Chleb");
+        hashMap.put(5, "Sok");
+        hashMap.put(3, "Jabłko");
+        hashMap.put(4, "Makaron");      //wartość zostanie naspisana
+        hashMap.put(32, "Pomarańcza");
+        hashMap.put(14, "Smietana");
+
+
+        treeMap.put(2, "Mleko");
+        treeMap.put(1, "Woda");
+        treeMap.put(4, "Chleb");
+        treeMap.put(5, "Sok");
+        treeMap.put(3, "Jabłko");
+        treeMap.put(4, "Makaron");      //wartość zostanie naspisana
+        treeMap.put(32, "Pomarańcza");
+        treeMap.put(14, "Smietana");
+
+        System.out.println("HashMap: ");
+        for(Map.Entry<Integer, String> pozycja : hashMap.entrySet()){
+            System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
+        }
+
+        System.out.println("\nTreeMap: ");
+
+        for(Map.Entry<Integer, String> pozycja : treeMap.entrySet()){
+            System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
+        }
+
+        System.out.println("\nJak widać, HashMap nie gwarantuje nam żadnej konkretnej kolejności wartości. W TreeMap elementy sortowane są zgodnie z " +
+                "kolejnością kluczy. Ważną cechą mapy, którą \nteż tutaj sprawdziłam jest to, że jeśli podam taki sam klucz jak już jest w mapie, wartość " +
+                "zostanie nadpisana.");
 
     }
 
@@ -309,7 +346,7 @@ public class Main {
 //
 //        }
 
-        zad2();
+        zad3();
 
         //scanner.close();
     }
