@@ -17,7 +17,7 @@ public class Main {
         Set<Integer> hashSet = new HashSet<>();          //tworze
         Set<Integer> treeSet = new TreeSet<>();
 
-        String[] liczbyString = ciag.split(" ");  //Rozdzielam ciag na liczby ale jako stringi
+        String[] liczbyString = ciag.split(" ");  //Rozdzielam ciag na pojedyncze liczby ale jako stringi
 
         for(String liczba : liczbyString){
             int liczby = Integer.parseInt(liczba);       //Zamieniam stringi na liczby
@@ -127,12 +127,11 @@ public class Main {
 
         scanner.close();
 
-        System.out.println("Na podstawie wyników programu porównującego czas wykonywania operacji dodawania, modyfikacji i usuwania " +
+        System.out.println("Na podstawie wyników tego programu porównującego czas wykonywania operacji dodawania, modyfikacji i usuwania " +
                 "elementów w dwóch typach list (ArrayList i LinkedList) można zauważyć, że ArrayList zwykle wykazuje lepszą wydajność " +
                 "przy dodawaniu i modyfikacji, podczas gdy LinkedList może być korzystniejszy przy usuwaniu elementów, szczególnie gdy " +
                 "usuwamy je z początku lub środka listy. Różnice w czasach wykonywania operacji mogą być kluczowe w kontekście wyboru " +
                 "odpowiedniej struktury danych w zależności od wymagań aplikacji.");
-
     }
 
     public static void zad3(){
@@ -150,7 +149,7 @@ public class Main {
         hashMap.put(4, "Chleb");
         hashMap.put(5, "Sok");
         hashMap.put(3, "Jabłko");
-        hashMap.put(4, "Makaron");      //wartość zostanie naspisana
+        hashMap.put(4, "Makaron");      //wartość zostanie nadpisana
         hashMap.put(32, "Pomarańcza");
         hashMap.put(14, "Smietana");
 
@@ -178,7 +177,6 @@ public class Main {
         System.out.println("\nJak widać, HashMap nie gwarantuje nam żadnej konkretnej kolejności wartości. W TreeMap elementy sortowane są zgodnie z " +
                 "kolejnością kluczy. Ważną cechą mapy, którą \nteż tutaj sprawdziłam jest to, że jeśli podam taki sam klucz jak już jest w mapie, wartość " +
                 "zostanie nadpisana.");
-
     }
 
     public static void zad4(){
@@ -186,7 +184,27 @@ public class Main {
         // Zaimplementuj nadpisywanie metod equals() i hashCode(). Następnie stwórz zbiór HashSet i
         // dodaj kilka produktów. Spróbuj dodać ten sam produkt ponownie i zobacz, jakie będą wyniki.
 
+        HashSet<Produkt> produkty = new HashSet<>();
 
+        Produkt produkt1 = new Produkt(15, 10.50);
+        Produkt produkt2 = new Produkt(2, 120);
+        Produkt produkt3 = new Produkt(38, 13.70);
+        Produkt produkt4 = new Produkt(9, 26.55);
+        Produkt produkt5 = new Produkt(11, 48.50);
+        Produkt produkt6 = new Produkt(6, 173.80);
+        Produkt produkt7 = new Produkt(2, 120);         //nie doda się bo powtórka
+
+        produkty.add(produkt1);
+        produkty.add(produkt2);
+        produkty.add(produkt3);
+        produkty.add(produkt4);
+        produkty.add(produkt5);
+        produkty.add(produkt6);
+        produkty.add(produkt7);                                  //nie doda się bo powtórka
+
+        System.out.println(produkty);
+
+        System.out.println("\nJak widać, HashSet nie sortuje elementów, ale usuwa duplikaty");
     }
 
     public static void zad5(){
@@ -194,8 +212,16 @@ public class Main {
         // komparator, który sortuje tę listę na podstawie wieku. Następnie posortuj listę za pomocą
         // komparatora i wyświetl wynik.
 
+        List<Osoby> osoby = new ArrayList<>();             //tworze liste
+
+        osoby.add(new Osoby("Amelia", 21));     //dodaję osoby
+        osoby.add(new Osoby("Kuba", 21));
+        osoby.add(new Osoby("Krzysiu", 19));
+        osoby.add(new Osoby("Adam", 17));
+        osoby.add(new Osoby("Maciej", 22));
 
 
+        System.out.println(osoby);
 
     }
 
@@ -293,61 +319,62 @@ public class Main {
 
 
     public static void main(String[] args) {
-//        System.out.println("Proszę wybrać numer zadania, którego rozwiązaniesz zobaczyć. Rozwiązałam 11 zadań: ");
-//
-//        Scanner scanner = new Scanner(System.in);
-//
-//        String wybor = scanner.nextLine();
-//
-//        switch(wybor){
-//            case "1":
-//                zad1();
-//                break;
-//
-//            case "2":
-//                zad2();
-//                break;
-//
-//            case "3":
-//                zad3();
-//                break;
-//
-//            case "4":
-//                zad4();
-//                break;
-//
-//            case "5":
-//                zad5();
-//                break;
-//
-//            case "6":
-//                zad6();
-//                break;
-//
-//            case "7":
-//                zad7();
-//                break;
-//
-//            case "8":
-//                zad8();
-//                break;
-//
-//            case "9":
-//                zad9();
-//                break;
-//
-//            case "10":
-//                zad10();
-//                break;
-//
-//            case "11":
-//                zad11();
-//                break;
-//
-//        }
+        System.out.println("Proszę wybrać numer zadania, którego rozwiązaniesz zobaczyć. Rozwiązałam 11 zadań: ");
 
-        zad3();
+        Scanner scanner = new Scanner(System.in);
 
-        //scanner.close();
+        String wybor = scanner.nextLine();
+
+        switch(wybor){
+            case "1":
+                zad1();
+                break;
+
+            case "2":
+                zad2();
+                break;
+
+            case "3":
+                zad3();
+                break;
+
+            case "4":
+                zad4();
+                break;
+
+            case "5":
+                zad5();
+                break;
+
+            case "6":
+                zad6();
+                break;
+
+            case "7":
+                zad7();
+                break;
+
+            case "8":
+                zad8();
+                break;
+
+            case "9":
+                zad9();
+                break;
+
+            case "10":
+                zad10();
+                break;
+
+            case "11":
+                zad11();
+                break;
+
+            default:
+                System.out.println("Nie podałeś prawidłowego znaku. Możesz wybrać tylko liczby 1-11.");
+                break;
+
+        }
+        scanner.close();
     }
 }
