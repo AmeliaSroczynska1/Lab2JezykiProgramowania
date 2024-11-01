@@ -25,13 +25,20 @@ public class Main {
             treeSet.add(liczby);                         //dodaje do treeSet
         }
 
-        scanner.close();
+        System.out.println("HashSet: ");
+        for(int element : hashSet) {
+            System.out.println(element);                     //wyświetlam zbior HashSet
+        }
 
-        System.out.println(hashSet);                     //wyświetlam oba zbiory
-        System.out.println(treeSet);
+        System.out.println("TreeSet: ");
+        for(int element : treeSet) {
+            System.out.println(element);                     //wyświetlam zbior TreeSet
+        }
 
         System.out.println("Jak widać, liczby w HashSet są układane w losowej kolejności," + //wyświetlam wnioski
                 " w TreeSet są sortowane w kolejności rosnącej. Oba zbiory ignorują duplikaty.");
+
+        scanner.close();
     }
 
     public static void zad2(){
@@ -159,7 +166,7 @@ public class Main {
         treeMap.put(4, "Chleb");
         treeMap.put(5, "Sok");
         treeMap.put(3, "Jabłko");
-        treeMap.put(4, "Makaron");      //wartość zostanie naspisana
+        treeMap.put(4, "Makaron");      //wartość zostanie nadpisana
         treeMap.put(32, "Pomarańcza");
         treeMap.put(14, "Smietana");
 
