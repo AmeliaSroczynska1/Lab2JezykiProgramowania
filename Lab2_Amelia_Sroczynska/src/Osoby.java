@@ -1,22 +1,14 @@
 public class Osoby {
-    private String imie;
+    private String imie;                        //tworze zmienne
     private int wiek;
 
-    public Osoby(String imie, int wiek){
+    public Osoby(String imie, int wiek){       //konstruktor
         this.imie = imie;
         this.wiek = wiek;
-    }
-
-    public String getImie(){
-        return imie;
-    }
-
-    public int getwiek(){
-        return wiek;
     }
 
     @Override
     public String toString(){
         return "\n" + imie + ": lat " + wiek;
-    }
+    }   //zamienia w string
 }

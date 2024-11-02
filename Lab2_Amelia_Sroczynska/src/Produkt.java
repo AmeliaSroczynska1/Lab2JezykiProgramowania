@@ -1,27 +1,19 @@
 import java.util.Objects;
 
 public class Produkt {
-    private int id;
+    private int id;                                 //tworze zmienne
     private double cena;
 
-    public Produkt(int id, double price){
+    public Produkt(int id, double cena){            //konstruktor
         this.id = id;
-        this.cena = price;
-    }
-
-    public int getId(){
-        return id;
-    }
-
-    public double getCena(){
-        return cena;
+        this.cena = cena;
     }
 
     @Override
-    public boolean equals(Object o){        //nadpisywanie metody equals()
-        if(this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Produkt product = (Produkt) o;
+    public boolean equals(Object x){        //nadpisywanie metody equals()
+        if(this == x) return true;
+        if (x == null || getClass() != x.getClass()) return false;
+        Produkt product = (Produkt) x;
         return Objects.equals(id, product.id);
     }
 
@@ -30,8 +22,8 @@ public class Produkt {
         return Objects.hash(id);
     }
 
-    @Override
+    @Override                               //zamienia w string
     public String toString(){
-        return "\n" + id  + " - " + cena;
+        return id  + " - " + cena;
     }
 }

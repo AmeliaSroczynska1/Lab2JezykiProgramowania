@@ -134,11 +134,10 @@ public class Main {
 
         scanner.close();
 
-        System.out.println("Na podstawie wyników tego programu porównującego czas wykonywania operacji dodawania, modyfikacji i usuwania " +
-                "elementów w dwóch typach list (ArrayList i LinkedList) można zauważyć, że ArrayList zwykle wykazuje lepszą wydajność " +
-                "przy dodawaniu i modyfikacji, podczas gdy LinkedList może być korzystniejszy przy usuwaniu elementów, szczególnie gdy " +
-                "usuwamy je z początku lub środka listy. Różnice w czasach wykonywania operacji mogą być kluczowe w kontekście wyboru " +
-                "odpowiedniej struktury danych w zależności od wymagań aplikacji.");
+        System.out.println("Na podstawie wyników tego programu porównującego czas wykonywania operacji dodawania, modyfikacji i usuwania \n" +
+                "elementów w dwóch typach list (ArrayList i LinkedList) można zauważyć, że ArrayList zwykle wykazuje lepszą wydajność \n" +
+                "przy dodawaniu i modyfikacji, podczas gdy LinkedList może być korzystniejszy przy usuwaniu elementów, szczególnie gdy \n" +
+                "usuwamy je z początku lub środka listy.");
     }
 
     public static void zad3(){
@@ -148,10 +147,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        Map<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();     //tworzę HashMap i TreeMap
         Map<Integer, String> treeMap = new TreeMap<>();
 
-        hashMap.put(2, "Mleko");
+        hashMap.put(2, "Mleko");                            //dodaję wartości i  klucze do hashMap
         hashMap.put(1, "Woda");
         hashMap.put(4, "Chleb");
         hashMap.put(5, "Sok");
@@ -161,7 +160,7 @@ public class Main {
         hashMap.put(14, "Smietana");
 
 
-        treeMap.put(2, "Mleko");
+        treeMap.put(2, "Mleko");                            //dodaję wartości i  klucze do treeMap
         treeMap.put(1, "Woda");
         treeMap.put(4, "Chleb");
         treeMap.put(5, "Sok");
@@ -170,7 +169,7 @@ public class Main {
         treeMap.put(32, "Pomarańcza");
         treeMap.put(14, "Smietana");
 
-        System.out.println("HashMap: ");
+        System.out.println("HashMap: ");                    //Wyświetlam
         for(Map.Entry<Integer, String> pozycja : hashMap.entrySet()){
             System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
         }
@@ -209,9 +208,12 @@ public class Main {
         produkty.add(produkt6);
         produkty.add(produkt7);                                  //nie doda się bo powtórka
 
-        System.out.println(produkty);
+        System.out.println("Zbiór HashSet (format: id - cena): ");
+        for(Produkt produkt : produkty) {
+            System.out.println(produkt);
+        }
 
-        System.out.println("\nJak widać, HashSet nie sortuje elementów, ale usuwa duplikaty");
+        System.out.println("\nJak widać, HashSet nie sortuje elementów. Program usuwa duplikaty");
     }
 
     public static void zad5(){
@@ -226,7 +228,6 @@ public class Main {
         osoby.add(new Osoby("Krzysiu", 19));
         osoby.add(new Osoby("Adam", 17));
         osoby.add(new Osoby("Maciej", 22));
-
 
         System.out.println(osoby);
 
