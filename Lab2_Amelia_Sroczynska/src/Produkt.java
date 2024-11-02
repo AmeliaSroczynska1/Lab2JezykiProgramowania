@@ -10,10 +10,10 @@ public class Produkt {
     }
 
     @Override
-    public boolean equals(Object x){        //nadpisywanie metody equals()
-        if(this == x) return true;
-        if (x == null || getClass() != x.getClass()) return false;
-        Produkt product = (Produkt) x;
+    public boolean equals(Object o){        //nadpisywanie metody equals()
+        if(this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produkt product = (Produkt) o;
         return Objects.equals(id, product.id);
     }
 

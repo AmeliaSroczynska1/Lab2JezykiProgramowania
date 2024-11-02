@@ -1,6 +1,8 @@
+import java.util.Comparator;
+
 public class Osoby {
     private String imie;                        //tworze zmienne
-    private int wiek;
+     int wiek;
 
     public Osoby(String imie, int wiek){       //konstruktor
         this.imie = imie;
@@ -9,6 +11,6 @@ public class Osoby {
 
     @Override
     public String toString(){
-        return "\n" + imie + ": lat " + wiek;
+        return imie + ": lat " + wiek;
     }   //zamienia w string
 }

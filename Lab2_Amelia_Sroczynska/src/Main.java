@@ -224,13 +224,23 @@ public class Main {
         List<Osoby> osoby = new ArrayList<>();             //tworze liste
 
         osoby.add(new Osoby("Amelia", 21));     //dodaję osoby
-        osoby.add(new Osoby("Kuba", 21));
+        osoby.add(new Osoby("Kuba", 23));
         osoby.add(new Osoby("Krzysiu", 19));
         osoby.add(new Osoby("Adam", 17));
         osoby.add(new Osoby("Maciej", 22));
 
-        System.out.println(osoby);
 
+        System.out.println("Lista osób przed posortowaniem: ");
+        for(Osoby osoba : osoby){
+            System.out.println(osoba);
+        }
+
+        osoby.sort(Comparator.comparingInt(o -> o.wiek));           //sortuję za pomocą Comparator
+
+        System.out.println("\nLista osób po posortowaniu: ");
+        for(Osoby osoba : osoby){
+            System.out.println(osoba);
+        }
     }
 
     public static void zad6(){
