@@ -259,18 +259,18 @@ public class Main {
             System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
         }
 
-        Map<String, Integer> sortedMap = new TreeMap<>(                     //sortuję za pomocą Comparator
+        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(                     //sortuję za pomocą Comparator
                 (miasto1, miasto2) -> treeMap.get(miasto1).compareTo(treeMap.get(miasto2))
         );
 
-//        Map<String, Integer> sortedMap = new TreeMap<>(                   //druga wersja, nie wiem czy dobra
+//        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(                   //druga wersja, nie wiem czy dobra
 //                Comparator.comparing(treeMap::get)
 //        );
 
-        sortedMap.putAll(treeMap);                                          //dodaję wszystko z powrotem
+        posortowaneTreeMap.putAll(treeMap);                                          //dodaję wszystko z powrotem
 
         System.out.println("\nPosortowany TreeMap: ");                      //wyświetlam posortowane
-        for(Map.Entry<String, Integer> pozycja : sortedMap.entrySet()) {
+        for(Map.Entry<String, Integer> pozycja : posortowaneTreeMap.entrySet()) {
             System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
         }
     }
