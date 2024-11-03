@@ -145,8 +145,6 @@ public class Main {
         // HashMap i TreeMap. Po dodaniu kilku elementów, zwróć uwagę na różnice w kolejności kluczy w
         // obu mapach.
 
-        Scanner scanner = new Scanner(System.in);
-
         Map<Integer, String> hashMap = new HashMap<>();     //tworzę HashMap i TreeMap
         Map<Integer, String> treeMap = new TreeMap<>();
 
@@ -247,8 +245,34 @@ public class Main {
         //Stwórz mapę TreeMap, w której klucze reprezentują nazwy miast, a wartości ilości ludności.
         // Napisz komparator, który sortuje mapę według ilości ludności. Wyświetl posortowaną mapę.
 
+        Map<String, Integer> treeMap = new TreeMap<>();                     //tworzę treeMap
+
+        treeMap.put("Wrocław", 673700);                                     //uzupełniam zbiór danymi
+        treeMap.put("Gdańsk", 470000);
+        treeMap.put("Zakopane", 27000);
+        treeMap.put("Sopot", 35000);
+        treeMap.put("Toruń", 195000);
 
 
+        System.out.println("TreeMap: ");                                    //wyświetlam nieposortowany treeMap
+        for(Map.Entry<String, Integer> pozycja : treeMap.entrySet()){
+            System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
+        }
+
+        Map<String, Integer> sortedMap = new TreeMap<>(                     //sortuję za pomocą Comparator
+                (miasto1, miasto2) -> treeMap.get(miasto1).compareTo(treeMap.get(miasto2))
+        );
+
+//        Map<String, Integer> sortedMap = new TreeMap<>(                   //druga wersja, nie wiem czy dobra
+//                Comparator.comparing(treeMap::get)
+//        );
+
+        sortedMap.putAll(treeMap);                                          //dodaję wszystko z powrotem
+
+        System.out.println("\nPosortowany TreeMap: ");                      //wyświetlam posortowane
+        for(Map.Entry<String, Integer> pozycja : sortedMap.entrySet()) {
+            System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
+        }
     }
 
     public static void zad7(){
