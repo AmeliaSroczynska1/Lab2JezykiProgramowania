@@ -20,9 +20,13 @@ public class Main {
         String[] liczbyString = ciag.split(" ");  //Rozdzielam ciag na pojedyncze liczby ale jako stringi
 
         for(String liczba : liczbyString){
-            int liczby = Integer.parseInt(liczba);       //Zamieniam stringi na liczby
-            hashSet.add(liczby);                         //dodaje do hashSet
-            treeSet.add(liczby);                         //dodaje do treeSet
+            try {                                        //na wypadek gdyby dane wprowadzone nie bylyby liczbami
+                int liczbaInt = Integer.parseInt(liczba.trim());    // Konwersja String na int
+                hashSet.add(liczbaInt);                  //Dodaję do HashSet
+                treeSet.add(liczbaInt);                  //Dodaję do TreeSet
+            } catch (NumberFormatException e) {
+                System.out.println("Podano znak, który nie jest liczbą, nie został dodany do zbioru");
+            }
         }
 
         System.out.println("HashSet: ");
@@ -69,7 +73,7 @@ public class Main {
 
 
         //Mierzenie czasu dodawania do LinkedList
-        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam dodawać
 
         for (int i = 0; i < iloscElementow; i++){           //dodaję wszystkie elementy do linkedList
             linkedList.add(i);
@@ -88,7 +92,7 @@ public class Main {
             arrayList.set(i, (int) Math.pow(arrayList.get(i), 2));
         }
 
-        czasKoncowy = System.nanoTime();                      //pobieram czas kiedy kończy dodawać
+        czasKoncowy = System.nanoTime();                      //pobieram czas kiedy kończy modyfikować
         long czasModyfikacjiArray = czasKoncowy-czasStartowy; //obliczam ostateczny czas modyfikowania
 
         System.out.println("Czas modyfikacji " + iloscElementow + " elementów w ArrayList to " + czasModyfikacjiArray + " nanosekund");      //wyświetlam wynik
@@ -101,33 +105,33 @@ public class Main {
             linkedList.set(i, (int) Math.pow(linkedList.get(i), 2));
         }
 
-        czasKoncowy = System.nanoTime();                       //pobieram czas kiedy kończy dodawać
+        czasKoncowy = System.nanoTime();                       //pobieram czas kiedy kończy modyfikować
         long czasModyfikacjiLinked = czasKoncowy-czasStartowy; //obliczam ostateczny czas modyfikowania
 
         System.out.println("Czas modyfikacji " + iloscElementow + " elementów w LinkedList to " + czasModyfikacjiLinked + " nanosekund");      //wyświetlam wynik
 
 
         //Mierzenie czasu usuwania w ArrayList
-        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam usuwać
 
         for (int i = iloscElementow-1; i >= 0; i--){        //usuwam wszystkie elementy
             arrayList.remove(i);
         }
 
-        czasKoncowy = System.nanoTime();                    //pobieram czas kiedy kończy dodawać
+        czasKoncowy = System.nanoTime();                    //pobieram czas zakończenia operacji usuwania
         long czasUsuwaniaArray = czasKoncowy-czasStartowy;  //obliczam czas usuwania
 
         System.out.println("Czas usuwania " + iloscElementow + " elementów z ArrayList to " + czasUsuwaniaArray + " nanosekund");      //wyświetlam wynik
 
 
         //Mierzenie czasu usuwania w LinkedList
-        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam modyfikować
+        czasStartowy = System.nanoTime();                   //pobieram czas kiedy zaczynam usuwać
 
         for (int i = iloscElementow-1; i >= 0; i--){        //usuwam wszystkie elementy
             linkedList.remove(i);
         }
 
-        czasKoncowy = System.nanoTime();                    //pobieram czas kiedy kończy dodawać
+        czasKoncowy = System.nanoTime();                    //pobieram czas kiedy kończy usuwać
         long czasUsuwaniaLinked = czasKoncowy-czasStartowy; //obliczam czas usuwania
 
         System.out.println("Czas usuwania " + iloscElementow + " elementów z LinkedList to " + czasUsuwaniaLinked + " nanosekund");      //wyświetlam wynik
@@ -233,7 +237,7 @@ public class Main {
             System.out.println(osoba);
         }
 
-        osoby.sort(Comparator.comparingInt(o -> o.wiek));           //sortuję za pomocą Comparator
+        osoby.sort(Comparator.comparingInt(Osoby::getWiek));           //sortuję za pomocą Comparator
 
         System.out.println("\nLista osób po posortowaniu: ");
         for(Osoby osoba : osoby){
@@ -413,9 +417,8 @@ public class Main {
                 break;
 
             default:
-                System.out.println("Nie podałeś prawidłowego znaku. Możesz wybrać tylko liczby 1-11.");
+                System.out.println("Nie podałeś prawidłowego znaku. Możesz wybrać tylko 1-11.");
                 break;
-
         }
         scanner.close();
     }
