@@ -263,12 +263,18 @@ public class Main {
             System.out.println(pozycja.getKey() + " - " + pozycja.getValue());
         }
 
-        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(                     //sortuję za pomocą Comparator
-                (miasto1, miasto2) -> treeMap.get(miasto1).compareTo(treeMap.get(miasto2))
+        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(
+                Comparator.comparing(treeMap::get)                         //sortuję za pomocą Comparator
         );
 
-//        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(                   //druga wersja, nie wiem czy dobra
-//                Comparator.comparing(treeMap::get)
+//        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(new Comparator<String>() {   //druga wersja, nie wiem czy dobra
+//            public int compare(String miasto1, String miasto2) {
+//                return treeMap.get(miasto1).compareTo(treeMap.get(miasto2));
+//            }
+//        });
+
+//        Map<String, Integer> posortowaneTreeMap = new TreeMap<>(                    //trzecia wersja, nie wiem czy dobra
+//                (miasto1, miasto2) -> treeMap.get(miasto1).compareTo(treeMap.get(miasto2))
 //        );
 
         posortowaneTreeMap.putAll(treeMap);                                          //dodaję wszystko z powrotem
@@ -294,6 +300,19 @@ public class Main {
         // Comparable, aby produkty były porównywane na podstawie ceny. Stwórz listę produktów i posortuj
         // ją za pomocą Collections.sort(). Następnie wyświetl posortowaną listę.
 
+        List<Produkt2> produkty = new ArrayList<>();              //tworzę listę
+
+        produkty.add(new Produkt2("Chleb", 5.99));       //dodaję elementy do listy
+        produkty.add(new Produkt2("Śmietana", 3.99));
+        produkty.add(new Produkt2("Mleko", 4.99));
+        produkty.add(new Produkt2("Ser", 9.99));
+
+        Collections.sort(produkty);
+
+        System.out.println("Posortowane produkty:");
+        for (Produkt2 produkt : produkty) {
+            System.out.println(produkt);
+        }
     }
 
     public static void zad8_1() {
@@ -365,7 +384,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("Proszę wybrać numer zadania, którego rozwiązaniesz zobaczyć. Rozwiązałam 11 zadań: ");
+        System.out.println("Proszę wybrać numer zadania, którego rozwiązanie chcesz zobaczyć. Rozwiązałam zadania 1-6 oraz 8: ");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -396,28 +415,12 @@ public class Main {
                 zad6();
                 break;
 
-            case "7":
-                zad7();
-                break;
-
             case "8":
                 zad8();
                 break;
 
-            case "9":
-                zad9();
-                break;
-
-            case "10":
-                zad10();
-                break;
-
-            case "11":
-                zad11();
-                break;
-
             default:
-                System.out.println("Nie podałeś prawidłowego znaku. Możesz wybrać tylko 1-11.");
+                System.out.println("Nie podałeś prawidłowego znaku. Możesz wybrać tylko 1-6 lub 8.");
                 break;
         }
         scanner.close();

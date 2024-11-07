@@ -14,6 +14,7 @@ public class Osoby {
         return imie;
     }
 
+
     public int getWiek() {                   //tworze dostep za pomocą getterów
         return wiek;
     }
